@@ -1,7 +1,7 @@
 'use strict';
-import {sendHomePage} from "./module/send-home-page.mjs";
-import {sendVideoFile} from "./module/send-video-file.mjs";
-import {sendImage} from "./module/send-image.mjs";
+import { sendHomePage } from "./module/send-home-page.mjs";
+import { sendVideoFile } from "./module/send-video-file.mjs";
+import { sendImage } from "./module/send-image.mjs";
 import http from "http";
 
 const runnersByRouts = {

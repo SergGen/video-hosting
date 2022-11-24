@@ -1,5 +1,5 @@
 import fs from "fs";
-import {pipeline} from "stream";
+import { pipeline } from "stream";
 
 export const createVideoStream = ({res, fileSize, resolvedPath}) => {
     res.writeHead(200,
@@ -10,7 +10,7 @@ export const createVideoStream = ({res, fileSize, resolvedPath}) => {
     );
 
     const readStream = fs.createReadStream(resolvedPath);
-    return pipeline(readStream, res, (err) => {
+    pipeline(readStream, res, (err) => {
         if (err && !(err.code === 'ERR_STREAM_PREMATURE_CLOSE')) {
             console.log(err);
         }
