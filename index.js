@@ -19,7 +19,7 @@ const router = (req, res) => {
             res.statusMessage = 'wrong address';
             return res.end();
         }
-        return runner(req, res);
+        runner(req, res);
     } catch (err) {
         console.error(err);
         res.statusCode = 500;
