@@ -12,18 +12,23 @@ const runnersByRouts = {
 
 const router = (req, res) => {
     try {
+        if (req.method !== 'GET') {
+            res.statusCode = 405;
+            res.statusMessage = 'Method Not Allowed';
+            return res.end();
+        }
         const url = req.url;
         const runner = runnersByRouts[url];
         if (!runner) {
             res.statusCode = 404;
-            res.statusMessage = 'wrong address';
+            res.statusMessage = 'Not Found';
             return res.end();
         }
         runner(req, res);
     } catch (err) {
         console.error(err);
         res.statusCode = 500;
-        res.statusMessage = 'Internal server error';
+        res.statusMessage = 'Internal Server Error';
         res.end();
     }
 }
