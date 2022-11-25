@@ -8,7 +8,7 @@ const __dirname = dirname(__filename);
 
 export const sendHomePage = (req, res) => {
     res.setHeader('Content-Type', 'text/html');
-    const pathHomePage = resolve(__dirname, '..', 'index.html');
+    const pathHomePage = resolve(__dirname, '..', 'public', 'index.html');
     const readStream = fs.createReadStream(pathHomePage);
     pipeline(readStream, res, (err) => err && console.log(err));
 }

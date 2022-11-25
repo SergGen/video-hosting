@@ -8,7 +8,7 @@ const __dirname = dirname(__filename);
 
 export const sendImage = (req, res) => {
     res.setHeader('Content-Type', 'image/jpeg');
-    const pathImg = resolve(__dirname, '..', 'img.jpg');
+    const pathImg = resolve(__dirname, '..', 'public', 'img.jpg');
     const readStream = fs.createReadStream(pathImg);
     pipeline(readStream, res, (err) => err && console.log(err));
 }
